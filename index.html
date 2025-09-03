@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hệ thống mã hóa chuyển động đèn Larva</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <div class="webcam-section">
+        <h2 class="section-title">Theo dõi chuyển động</h2>
+        <div id="webcam-container">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="canvas"></canvas>
+          <canvas id="motion-canvas"></canvas>
+          <div class="motion-indicator" id="motion-indicator"></div>
+        </div>
+        <div class="controls">
+          <button id="start-btn">Bắt đầu</button>
+          <button id="stop-btn" disabled>Dừng lại</button>
+          <button id="reset-btn">Đặt lại</button>
+        </div>
+        <div class="threshold-control">
+          <label for="threshold">Độ nhạy phát hiện chuyển động:</label>
+          <input type="range" id="threshold" min="10" max="100" value="30"/>
+          <span id="threshold-value">30</span>
+        </div>
+        <div class="status">
+          Trạng thái: <span id="status-text" class="not-detecting">Chưa kích hoạt</span>
+        </div>
+        <div class="stats">
+          <span id="motion-count">Số lần chuyển động: 0</span>
+          <span id="char-count">Số ký tự đã tạo: 0</span>
+        </div>
+        <div class="region-info" id="region-info">Vùng phát hiện chuyển động: Không có</div>
+      </div>
+
+      <div class="output-section">
+        <h2 class="section-title">Kết quả mã hóa</h2>
+        <p>Chuỗi nhị phân:</p>
+        <div class="output-display" id="binary-output"></div>
+        <p>Chuỗi ký tự:</p>
+        <div class="output-display" id="char-output"></div>
+
+        <h3 class="section-title">Bảng chữ cái mã hóa (24 ký tự)</h3>
+        <div class="alphabet-grid" id="alphabet-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
